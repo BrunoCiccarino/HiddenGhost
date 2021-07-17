@@ -73,7 +73,7 @@ struct linux_dirent {
  */
 #include <linux/kprobes.h>
 
-unsigned long kln_addr = 0;
+unsigned long kln_addr;
 static struct kprobe kp = {
 	    .symbol_name = "kallsyms_lookup_name"
 };
