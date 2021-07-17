@@ -67,11 +67,6 @@ static int __init ghost_init(void)
         printk(KERN_INFO "Error, syscall_table not found");
         return -1;
     }
-    cr0 = read_cr0();
-
-
-
-
 
     return 0;
 }
