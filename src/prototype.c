@@ -11,7 +11,7 @@
 
 MODULE_AUTHOR("Ch4r0nN");
 MODULE_LICENSE("GPL");
-MODULE_VERSION("0.0.0.2");
+MODULE_VERSION("0.0.0.3");
 
 
 
@@ -49,7 +49,7 @@ find_syscall_table(void)
 
     register_kprobe(&kp);
 
-    kallsyms_lookup_name = (kallsyms_lookup_name_t) kln_addr;
+    kallsyms_lookup_name = (kallsyms_lookup_name_t) kp.addr;
 
     unregister_kprobe(&kp);
 
