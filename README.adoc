@@ -11,7 +11,7 @@ Hooking is the act of redirecting/modifying a certain code stream, this redirect
 
 link of articles: 
 
-https://github.com/LKM-Exploration[LKM-Exploration Making drivers from basic to advanced]
+https://github.com/Ch4r0nN/LKM-Exploration[LKM-Exploration Making drivers from basic to advanced]
 
 
 https://www.unknowncheats.me/forum/c-and-c-/67884-mid-function-hook-deal.html[Unknown Cheats]
