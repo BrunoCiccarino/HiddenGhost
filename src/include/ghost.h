@@ -2,7 +2,7 @@
 
 BSD 3-Clause License
 
-Copyright (c) 2021, Black-Hell-Team 
+Copyright (c) 2021, Ch4r0nN
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
