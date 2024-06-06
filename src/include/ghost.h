@@ -1,5 +1,4 @@
 /*
-
 BSD 3-Clause License
 
 Copyright (c) 2021, Ch4r0nN
@@ -29,7 +28,6 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 */
 
 #include <linux/linkage.h>
@@ -68,3 +66,11 @@ static struct kprobe kp = {
     .function = (_hook),        \
     .original = (_orig),        \
 }
+
+struct linux_dirent64 {
+    ino64_t        d_ino;
+    off64_t        d_off;
+    unsigned short d_reclen;
+    unsigned char  d_type;
+    char           d_name[0];
+};
