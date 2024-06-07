@@ -6,7 +6,7 @@ Before starting the explanation of how the rootkit works in depth I will explain
 
 ** Tested On:
 
-[x] Debian 12 6.7amd
+[✔️] Debian 12 6.7amd
 
 ** What is Hooking:
 
