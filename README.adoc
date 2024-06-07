@@ -10,6 +10,7 @@ Before starting the explanation of how the rootkit works in depth I will explain
 
 ** Usage: 
 
+```
 1) install the kernel headers:
 
 sudo apt install linux-headers-$(uname -r)
@@ -38,9 +39,11 @@ sudo insmod main.ko
 
 dmesg | tail -n 10
 
+```
+
 After these steps are completed, you should see this message:
 
-image::img/HiddenGhost[]
+image::img/HiddenGhost.png[]
 
 ** What is Hooking:
 
