@@ -4,6 +4,10 @@ Hidden Ghost *is an new solution for find system call table with support for 5.7
 
 Before starting the explanation of how the rootkit works in depth I will explain the basics.
 
+** Tested On:
+
+[x] Debian 12 6.7amd
+
 ** What is Hooking:
 
 Hooking is the act of redirecting/modifying a certain code stream, this redirect technique can be used for good and for bad, a big example of using this technique is mid function hooking This time I saw an example midFunction hook in the Unknown cheats forum that created a function ```jmp 0xE9``` at address ```pAddres``` I won't take much of your time explaining how it works and such because there are articles about it, I left two articles at the end of this readme, mine where I explain in depth about lkm and the one about MidFunction hook.
