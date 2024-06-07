@@ -1,4 +1,4 @@
-== DantesGhost
+== HiddenGhost
  
 Dante's Ghost *is an new solution for find system call table with support for 5.7x kernels +*. Dante's Ghost finds the syscall table via the ```kallsyms_lookup_name``` module with the ```<linux/kprobes.h>``` headder.
 
